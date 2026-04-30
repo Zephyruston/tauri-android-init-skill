@@ -28,6 +28,9 @@ Read the bundled reference when the request involves setup details, errors, sign
 Follow this order for Android initialization:
 
 1. Confirm prerequisites: Android SDK, NDK, Java/JDK, Rust Android targets, Tauri CLI, connected phone/emulator, and USB debugging.
+   - Check ALL of these env vars (users may use different names): `ANDROID_HOME`, `ANDROID_SDK_ROOT`, `NDK_HOME`, `ANDROID_NDK_HOME`, `JAVA_HOME`.
+   - **Tauri specifically reads `ANDROID_NDK_HOME`** — if the user only has `NDK_HOME`, the NDK will not be discoverable and linkers must be hardcoded in `cargo/config.toml`.
+   - Also verify these binaries are on PATH: `adb` (from platform-tools), `sdkmanager` (from cmdline-tools), `keytool` (from JDK).
 2. For a fresh `npm create tauri-app@latest` project, run `npm install` first, then `npm run tauri android init`.
 3. Initialize or inspect Tauri Android output: `npm run tauri android init` if Android has not been initialized; otherwise inspect existing `src-tauri/gen/android`.
 4. Fix frontend dev server settings for device live reload:
@@ -38,8 +41,9 @@ Follow this order for Android initialization:
    - Add proxy values to `src-tauri/gen/android/gradle.properties` only when the user uses a local proxy.
    - Validate with `cd src-tauri/gen/android` then `./gradlew tasks --info`.
 6. Fix Rust Android linking:
-   - Prefer `ANDROID_NDK_HOME`.
-   - If needed, create `src-tauri/.cargo/config.toml` with linkers for `aarch64-linux-android`, `armv7-linux-androideabi`, `i686-linux-android`, and `x86_64-linux-android`.
+   - First check if `ANDROID_NDK_HOME` is set. If not, check `NDK_HOME` and suggest `set -gx ANDROID_NDK_HOME $NDK_HOME` (fish) or `export ANDROID_NDK_HOME=$NDK_HOME` (bash/zsh).
+   - If Cargo still cannot resolve linkers (env var expansion in `config.toml` is unreliable), create `src-tauri/.cargo/config.toml` with absolute paths to the NDK linker binaries for `aarch64-linux-android`, `armv7-linux-androideabi`, `i686-linux-android`, and `x86_64-linux-android`.
+   - Always verify the linker binaries actually exist at the expected NDK path before writing them into config.
 7. Run on a real device:
    - Ensure the phone is connected and authorized before `npm run tauri android dev -- --verbose`.
    - If the app is white, inspect the Android WebView through Chrome at `chrome://inspect/#devices`.
