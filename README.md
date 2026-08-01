@@ -23,7 +23,7 @@ tauri-android-init-skill/
 ### gh CLI
 
 ```bash
-gh skill install Zephyruston/tauri-android-init-skill/tauri-android-init
+gh skill install Zephyruston/tauri-android-init-skill tauri-android-init
 ```
 
 ### npx
