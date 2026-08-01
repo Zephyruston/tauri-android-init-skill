@@ -1,6 +1,7 @@
 ---
 name: tauri-android-init
 description: Guide, initialize, configure, debug, and package Tauri v2 Android mobile app development, including fresh projects created with `npm create tauri-app@latest`. Use this skill whenever the user mentions Tauri Android, Tauri mobile, Android dev setup, `tauri android init`, `tauri android dev`, Gradle/NDK linker errors, phone white screen/WebView debugging, APK release signing, or asks to configure a Tauri app for Android, even if they only describe a build or device problem.
+license: MIT
 ---
 
 # Tauri Android Init

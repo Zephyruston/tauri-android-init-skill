@@ -1,0 +1,12 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "groupings": [
+    {
+      "title": "Tauri",
+      "description": "Skills for Tauri desktop and mobile development.",
+      "skills": [
+        "tauri-android-init"
+      ]
+    }
+  ]
+}
