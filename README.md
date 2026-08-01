@@ -8,11 +8,14 @@ tauri-android-init Skill 是一个 Claude Code 的 Skill，帮助用户将 Tauri
 
 ```
 tauri-android-init-skill/
-├── SKILL.md                        # Skill 定义文件（YAML frontmatter + Markdown）
-├── references/                     # 参考文档（skill 运行时按需加载）
-│   └── tauri-android-workflow.md   # 完整配置清单、代码片段、诊断流程
-├── LICENSE                         # MIT 许可证
-└── README.md                       # 本文件
+├── skills/
+│   └── tauri-android-init/
+│       ├── SKILL.md                  # Skill 定义文件
+│       └── references/
+│           └── tauri-android-workflow.md  # 完整配置清单、代码片段、诊断流程
+├── skills.sh.json                    # skills.sh 展示页配置
+├── LICENSE                           # MIT 许可证
+└── README.md                         # 本文件
 ```
 
 ## 安装
@@ -56,13 +59,13 @@ Gradle 下载依赖一直超时，怎么设代理
 | Vite HMR 配置      | 前端热更新 + 真机联调                 | `vite --host`、`TAURI_DEV_HOST` 配置      |
 | APK 发布签名       | keystore 生成、Gradle signingConfigs   | `npm run tauri android build` 构建       |
 
-> 更多细节参见 [`references/tauri-android-workflow.md`](./references/tauri-android-workflow.md)。
+> 更多细节参见 [`references/tauri-android-workflow.md`](./skills/tauri-android-init/references/tauri-android-workflow.md)。
 
 ## 贡献
 
 欢迎提交 Issue 和 Pull Request 来改进这个项目。
 
-贡献前请阅读 [SKILL.md](./SKILL.md) 了解该 Skill 的工作方式和约定。
+贡献前请阅读 [SKILL.md](./skills/tauri-android-init/SKILL.md) 了解该 Skill 的工作方式和约定。
 
 ## 许可证
 
