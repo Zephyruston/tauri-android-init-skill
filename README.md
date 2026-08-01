@@ -15,23 +15,18 @@ tauri-android-init-skill/
 └── README.md                       # 本文件
 ```
 
-## 手动安装
+## 安装
 
-### 方法 1：直接克隆
+### gh CLI
 
 ```bash
-git clone https://github.com/Zephyruston/tauri-android-init-skill.git ~/.claude/skills/tauri-android-init
+gh skill install Zephyruston/tauri-android-init-skill/tauri-android-init
 ```
 
-### 方法 2：手动复制
+### npx
 
 ```bash
-# 创建 skill 目录
-mkdir -p ~/.claude/skills/tauri-android-init/references
-
-# 复制 skill 文件
-cp SKILL.md ~/.claude/skills/tauri-android-init/
-cp references/*.md ~/.claude/skills/tauri-android-init/references/
+npx skills add Zephyruston/tauri-android-init-skill
 ```
 
 ### 验证安装
